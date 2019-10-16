@@ -10,16 +10,49 @@ http://store.docker.com
 http://github.com/BretFisher/udemy-docker-mastery
 http://get.docker.com
 
-## Docker Toolbox for Windows 7, 8 and 10 Home: Setup and Tips
-docker
-docker version
-docker info
-docker ps
+docker version # To check the docker is Installed properly
+docker info # Give most of the configuration information about ... 
+
+# Container vs Image
 docker container
 docker container run --
+d
+ocker container run --publish 80:80 nginx
+docker container run --publish 80:80 --detach nginx
+docker container ls #It only shows the running container.
+docker container stop id_number of the container(the first three/four digits) # Stops specific container/image?
+docker container ls -a  # lists all the containers you have
+docker container run --publish 80:80 --detach --name webhost nginx # to let it give  a name for a container
+docker container logs webhost  # returns the the latest log hosts 
+docker container top host name 
+docker container top webhost # returns the running host with a detail info like PID, User, Time, Command/progress
+docker container --help # list what we can do on the container
+docker container rm id's (d1d, 74e 9940b7 b54) # removes multiple  containers if possible
+OR docker container rm -f d1b 9a2 74e 944  # Forces 
+docker container stop webhost
+docker container rm  webhost # removes the webhost image/container
+#====================
+	
+# Contaner vs VM
+docker run --name mongo -d mongo # Mongo db image
+docker top mongo
+ps aux # process list
+docker container stop mongo
+docker container start mongo
+docker pause
+ps aux | grep mongo # To search for mongo images specifically
+#Managing Multiple Containers
+docker container run --publish 80:80 --detach --name webhost nginx
+docker container run -d -p 3306:3306 --name db -e MYSQL_RANDOM=yes mysql
+docker container run -d --name webservice -p 8080:80 httpd
+docker ps or docker container ls # to see whether they are running or not
+Docker container stop  600 382 a1e eea # 
+docker rm -f 600 382 a1e eea 2cf # removes all the images 
+#=================================
+
+Docker images 
 docker-machine ls
 docker-machine start
-docker pause
 docker-machine help
 docker-machine env default
 ## Docker for Mac Setup and Tips
@@ -124,7 +157,6 @@ docker container exec -it my_nginx ping new_nginx
 docker container exec -it new_nginx ping my_nginx
 docker container create --help
 ## Assignment Answers: Using Containers for CLI Testing
-
 docker container run --rm -it centos:7 bash
 docker container run --rm -it ubuntu:14.04 bash
 
@@ -154,14 +186,13 @@ docker container rm -f 63f
 ## Container VS. VM: It's Just a Process
 docker run --name mongo -d mongo
 docker top mongo
-
 docker stop mongo
 docker start mongo
 docker top mongo
+
 ## Assignment Answers: Manage Multiple Containers
 docker container run -d -p 3306:3306 --name db -e MYSQL_RANDOM_ROOT_PASSWORD=yes MYSQL_RANDOM_ROOT_PASSWORD
 docker container logs db
-
 docker container run -d --name webserver -p 8080:80 httpd
 docker container run -d --name proxy -p 80:80 nginx
 docker container stop TAB COMPLETION
@@ -175,8 +206,8 @@ docker container top nginx
 docker container inspect mysql
 docker container stats --help
 docker container stats
-## Getting a Shell Inside Containers: No Need for SSH
 
+## Getting a Shell Inside Containers: No Need for SSH
 docker container run -help
 docker container run -it --name proxy nginx bash
 docker container run -it --name ubuntu ubuntu
@@ -206,7 +237,6 @@ docker container disconnect TAB COMPLETION
 docker container inspect
 
 ## Docker Networks: DNS and How Containers Find Each Other
-
 docker network inspect TAB COMPLETION
 docker container run -d --name my_nginx --network my_app_net nginx
 docker container inspect TAB COMPLETION
@@ -227,7 +257,6 @@ docker container rm -f TAB COMPLETION
 # Container Images, Where To Find Them and How To Build Them
 ## The Mighty Hub: Using Docker Hub Registry Images
 http://hub.docker.com
-
 docker pull nginx
 docker pull nginx:1.11.9
 docker pull nginx:1.11
@@ -266,6 +295,7 @@ docker container run -p 80:80 --rm nginx-with-html
 docker image tag --help
 docker image tag nginx-with-html:latest bretfisher/nginx-with-html:latest
 docker push
+
 ## Assignment Answers: Build Your Own Dockerfile and Run Containers From It
 cd dockerfile-assignment-1
 docker build cmd
@@ -330,8 +360,7 @@ https://hub.docker.com
 docker-compose down --help
 docker-compose down -v
 ## Adding Image Building to Compose Files
-
-docker-compose.yml
+er-compose.yml
 docker-compose up --build
 docker-compose down
 docker-compose down --help
@@ -358,6 +387,7 @@ docker service inspect drupal
 ## Scaling Out with Routing Mesh
 docker service create --name search --replicas 3 -p 9200:9200 elasticsearch:2
 docker service ps search
+
 ## Assignment Answers: Create a Multi-Service Multi-Node Web App
 docker node ls
 docker service ls
@@ -378,9 +408,7 @@ docker service logs worker
 docker service ps worker
 
 ## Swarm Stacks and Production Grade Compose
-
 docker stack deploy -c example-voting-app-stack.yml voteapp
-
 docker stack
 docker stack ls
 docker stack ps voteapp
@@ -444,22 +472,17 @@ docker container inspect p2
 
 docker service create --name p1 postgres
 docker service create --name p2 --health-cmd="pg_isready -U postgres || exit 1" postgres
+
 # Container Registries: Image Storage and Distribution
 ## Docker Hub: Digging Deeper
-
 https://hub.docker.com
-
 ## Docker Store: What Is It For?
-
 https://store.docker.com
 ## Docker Cloud: CI/CD and Server Ops
 https://cloud.docker.com
 https://hub.docker.com
-
 ## Understanding Docker Registry
-
 https://github.com/docker/distribution
-
 https://hub.docker.com/registry
 
 ## Run a Private Docker Registry

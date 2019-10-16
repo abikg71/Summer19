@@ -1,0 +1,102 @@
+October 15, 2019
+Abinet Kenore
+Git Cheat sheet
+Git allows:
+  history
+  collaboration
+  feature branches
+First thing First
+ Go to GitHub Homepage or https://github.com/join?source=header-home
+  create account(signup) by filling the following by appropriate info.
+    Note public vs private
+        Username
+        mail address
+        Password
+
+    Once you signup
+    create a new Repository for the project you are going to work on
+  Go back to the command line and choose the folder you want work on and then
+  git clone the repository you created on Github
+      git clone https://github.com/abikg71/Webdev.git
+
+      git remote -v is used to check if you cloned someones repo and then you
+       need to push anything you worked to your repo
+              origin	https://github.com/abikg71/Webdev.git (fetch)
+              origin	https://github.com/abikg71/Webdev.git (push)
+    git remote set-url origin yourRepo
+    To check if you successfully use git remote -v
+  ==> git push origin master
+   -> You may be asked to enter your Username and Password, so go head and enter
+    those.
+Go head and refresh your GitHub repo and it is no longer empty.
+FROM NOW ON
+    Any time you made a change to your Project
+    Do
+    1. git status
+    2. git add -A
+    3. git commit -m "message. "
+    4. git push origin master
+
+Git in Action
+  Project = Repository(repo)
+  ->Working directory
+  ->Staging = Controlling what gets committed
+  ->Commit = Git's way of saving
+  ->push
+  ->pull
+
+  git status
+  git add -A to add all file/change
+  git commit -m "Msg"
+  git checkout -- . to restore the file if it get deleted/even cleaned trash bin
+
+ GitHub
+ git push origin master to push to the server
+ git pull to pull the latest updated file from the server
+
+Installing Git and Setup
+Windows
+  Go to browser: git-scm.com
+      download for Windows
+      follow the default installation by clicking next next..
+      On the search menu of your computer type "Git"
+      open(click) Git Bash.
+      That is your command line.
+
+Mac 
+	on search bar type "terminal"
+  	type  git --version
+        git version 2.17.2 (Apple Git-113)
+        if you don't see something which looks like the above result go to the git-scm.com 
+	and download git and follow the default instruction.
+
+ On terminal or Git Bash to setup your git env't do the following:
+    git config --global user.name"YourName"
+    git config --global user.email"YourEmail"
+
+# The following is what I copied my terminal
+git config --global user.name"Abinet"error: invalid key: user.nameAbnt Kore
+➜  ~ git config --global user.name"abig71"
+➜  ~ git config --global user.email"abinetkenore14@yahoo.com"
+
+      On your computer create a new folder with a nice name
+      Navigate to the folder you created
+      pwd
+      cd drag and drop the folder
+      To verify pwd (not necessary)
+      create an other folder by typing mkdir folderName
+
+    Let git to track any changes from now on
+    git init => creates repo with name you gave to the new folder you created.
+    touch newfile.format then write something to the file
+
+git status
+git add the name of the file i wanted to add to the staging area
+git status
+git commit -m "msg"
+git clone the repo url to pull down if you have an existing repo
+git push origin master
+
+HOW TO CREATE A BRANCH AND WORK ON IT
+To create a brabch and ro work on it under the same file
+    git checkout -b branchName

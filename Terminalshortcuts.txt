@@ -1,0 +1,42 @@
+ Keyboard Shortcuts on Terminal
+
+ctr + a to go to the beginning of the line
+
+ctr + e to go to the end  of the line
+
+option + arrow left/right
+
+Option + click 
+
+ctr + u removes a words before the cursor
+
+ctr + k removes a words after the cursor 
+
+!few words to run the command again
+
+!# is the command line
+
+Ctr + r reverse serach
+Ctr + l clear
+Cmd + k to clear the history entirely
+
+Customizing Terminal 
+.bash_profile and .bashrc files
+
+ cd ~/
+ touch .bash_profile
+ Atom .bash_profile
+ touch .bashrc
+ Atom .bashrc
+
+
+
+Please look over the ~/.zshrc file to select plugins, themes, and options.
+
+p.s. Follow us on https://twitter.com/ohmyzsh
+ 
+p.p.s. Get stickers, shirts, and coffee mugs at https://shop.planetargon.com/collections/oh-my-zsh      -- none --
+
+
+
+

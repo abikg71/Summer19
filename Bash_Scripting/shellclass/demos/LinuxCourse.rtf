@@ -1,0 +1,634 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red0\green0\blue0;\red47\green189\blue29;
+\red232\green235\blue20;\red252\green49\blue24;\red47\green180\blue29;\red255\green255\blue255;\red134\green205\blue77;
+\red0\green0\blue255;\red33\green255\blue255;\red243\green235\blue10;\red134\green205\blue77;\red251\green2\blue7;
+\red102\green177\blue50;\red254\green223\blue152;\red255\green250\blue131;\red102\green177\blue50;\red163\green217\blue121;
+\red255\green255\blue10;\red98\green147\blue254;\red251\green2\blue7;\red64\green11\blue217;\red193\green101\blue28;
+\red200\green20\blue201;\red180\green36\blue25;\red252\green39\blue18;\red33\green255\blue6;\red255\green255\blue255;
+\red242\green242\blue242;\red253\green128\blue8;\red252\green112\blue56;\red253\green193\blue49;\red252\green83\blue8;
+\red253\green165\blue49;\red217\green11\blue5;\red221\green32\blue103;\red33\green255\blue255;\red46\green174\blue187;
+\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c95825;\csgray\c0\c85000;\cssrgb\c20012\c76928\c14711;
+\cssrgb\c92620\c92472\c8348;\cssrgb\c100000\c28793\c11639;\cssrgb\c20239\c73899\c14948;\cssrgb\c100000\c100000\c100000;\cssrgb\c58755\c82661\c37297;
+\cssrgb\c1680\c19835\c100000;\cssrgb\c0\c99144\c100000;\cssrgb\c96264\c92423\c0;\cssrgb\c58755\c82661\c37297;\cssrgb\c100000\c14913\c0;
+\cssrgb\c46532\c73327\c25364;\cssrgb\c99898\c89464\c65948;\cssrgb\c100000\c97501\c58325;\cssrgb\c46532\c73327\c25364;\cssrgb\c69337\c86836\c54718;
+\cssrgb\c99942\c98555\c0;\cssrgb\c45506\c65578\c99793;\cssrgb\c100000\c14913\c0;\cssrgb\c32309\c18668\c88228;\cssrgb\c80554\c47367\c13835;
+\cssrgb\c83397\c23076\c82665;\cssrgb\c76410\c21699\c12524;\cssrgb\c100000\c25271\c7591;\cssrgb\c0\c97680\c0;\csgray\c100000\c85000;
+\csgray\c95825\c85000;\cssrgb\c100000\c57637\c0;\cssrgb\c100000\c52407\c27938;\cssrgb\c99771\c79477\c24504;\cssrgb\c100000\c41713\c26;
+\cssrgb\c99945\c70410\c24558;\cssrgb\c88946\c14202\c0;\cssrgb\c90234\c23206\c47866;\cssrgb\c0\c99144\c100000;\cssrgb\c20198\c73241\c78251;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww14160\viewh18000\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf0 06/17/19 10:30PM\
+\
+Linux Crash course\
+\
+=> Unzip -d folderName zipedFile. To unzip the file\
+\
+Linux Installation \
+Virtual Box\
+	box. =operating system image\
+	vagrant box add user/BOX\
+	vagrant box add Jason/centos7\
+	mkdir vm1\
+	cd vm1\
+	vagrant init Jason/centos7\
+	vagrant up imports the box in VB \
+ 	--------------- \
+	vagrant up [vm_name]brings all the Vm/system you have\
+---------------------------\
+	vagrant ssh [vm_name]\
+	exit\
+	vagrant halt or [vm]\
+	vagrant up [vm]\
+	vagrant suspend\
+	vagrant resume\
+	vagrant destroy\
+	vagrant   lists options\
+	vagrant status\
+	vagrant reload it halts and starts the VM after some change has been made. \
+\
+	ping -c 3 10.9.8.7\
+The result\
+PING 10.9.8.7 (10.9.8.7): 56 data bytes\
+64 bytes from 10.9.8.7: icmp_seq=0 ttl=64 time=0.512 ms\
+64 bytes from 10.9.8.7: icmp_seq=1 ttl=64 time=0.463 ms\
+64 bytes from 10.9.8.7: icmp_seq=2 ttl=64 time=0.632 ms\
+\
+--- 10.9.8.7 ping statistics ---\
+3 packets transmitted, 3 packets received, 0.0% packet loss\
+round-trip min/avg/max/stddev = 0.463/0.536/0.632/0.071 ms\
+\
+Virtual Machine\
+Vagrant a command line to tool used to do the job easy \
+\
+-----------------------\
+Basic script\
+  config.vm.box = "jasonc/centos7"\
+  config.vm.define "test1" do |test1|\
+    test1.vm.hostname = "test1"\
+    test1.vm.network "private_network", ip: "10.9.8.5"\
+  end\
+\
+	=> [vagrant@test1 ~]$ ls /vagrant/\
+	cat /vagrant/Vagrantfile\
+\
+FIRST SCRIPT YOU CREATING\
+New user account\
+Checks for the proper privileges\
+Reports the account creation fails\
+\
+#!bin/bash\
+\
+ #sharp\
+!bang\
+#! shebang\
+\
+[vagrant@localhost vagrant]$ vim luser-demo01.sh \
+[vagrant@localhost vagrant]$ ls -l\
+total 8\
+-rw-r--r-- 1 vagrant vagrant  131 Jun 18 14:40 luser-demo01.sh\
+-rw-r--r-- 1 vagrant vagrant 3021 Jun 18 02:16 Vagrantfile\
+-rw-r\'97r\'97  read and write for the user and anyone else read only permission\
+\
+==> To make it excitable \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb3 \CocoaLigature0 [vagrant@localhost vagrant]$ chmod 755 luser-demo01.sh\
+[vagrant@localhost vagrant]$ ls -l\
+total 8\
+-rwxr-xr-x 1 vagrant vagrant  131 Jun 18 14:40 \cf4 luser-demo01.sh\cf2 \
+-rw-r--r-- 1 vagrant vagrant 3021 Jun 18 02:16 Vagrantfile\cf0 \cb1 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+r + w + x  ==4 + 2 + 1  7 user \
+R + x  = 4 + 1 group \
+R + x  = 4 + 1 Everyone else\
+ == 755\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf5 \cb3 \CocoaLigature0 PM\cf6 localusers =>\cf2 ./luser-demo01.sh To excute \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \cb1 \CocoaLigature1 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 \cb3 \CocoaLigature0 abiken\cf5 01:35 PM\cf6 localusers =>\cf2 type man\
+man is /usr/bin/man\
+\cf7 abiken\cf5 01:39 PM\cf6 localusers =>\cf2 type echo\
+echo is a shell builtin\
+\cf7 abiken\cf5 01:39 PM\cf6 localusers =>\
+Use type to know either the command is built in or not\
+\
+\cf7 abiken\cf5 01:39 PM\cf6 localusers =>\cf2 type -a echo\
+echo is a shell builtin\
+echo is /bin/echo = To know all instances.\cf0 \cb1 \CocoaLigature1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb3 \CocoaLigature0 help echo |less\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf7 abiken\cf5 01:46 PM\cf6 localusers =>\cf2 uptime\
+13:47  up  2:16, 2 users, load averages: 1.33 1.45 1.45\
+\cf7 abiken\cf5 01:47 PM\cf6 localusers =>\cf2 man uptime\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 >\cf2 cat luser-demo01.sh \
+#!/bin/bash\
+# Hello from test os\
+\
+# This script dispalys various information on the screen.\
+\
+# Display the text hello\
+echo 'Hello'\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf8 \cb9 Man bash\cb3  \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs36 \cf2 \cb3 [vagrant@localhost vagrant]$ echo $\{PATH\}\
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/sbin:/home/vagrant/bin\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf8 \cb3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs36 \cf2 \cb3 [vagrant@localhost vagrant]$ which head\
+/usr/bin/head\
+\
+[vagrant@localhost vagrant]$ which head\
+/usr/bin/head\
+[vagrant@l\cf10 ocalhost vagrant]$ sudo vim /usr/local/bin/head # To create your own\cf2   \
+[vagrant@localhost vagrant]$ sudo chmod 755 /usr/local/bin/head\
+[vagrant@localhost vagrant]$ which head\
+/usr/local/bin/head\
+[vagrant@localhost vagrant]$ \cf11 which -a head# displays both heads\cf2 \
+/usr/local/bin/head\
+/usr/bin/head\
+\
+[vagrant@localhost vagrant]$\cf12  head Excutes\cf2  \
+Hello from my head.\
+\
+[vagrant@localhost vagrant]$ /\cf13 usr/bin/head -n1 /etc/passwd\cf2 \
+root:x:0:0:root:/root:/bin/bash\
+\cf14 sudo rm /usr/local/bin/head Removes the head created\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf8 \cb3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs36 \cf2 \cb3  vagrant]$ sudo cp fileName file path\
+man basename\
+man dirname\
+\
+ \cf15 help for |head\cf2 \
+for: for NAME [in WORDS ... ] ; do COMMANDS; done\
+    Execute commands for each member in a list.\
+    \
+    The `for' loop executes a sequence of commands for each member in a\
+    list of items.  If `in WORDS ...;' is not present, then `in "$@"' is\
+    assumed.  For each element in WORDS, NAME is set to that element, and\
+    the COMMANDS are executed.\
+    \
+    Exit Status:\
+    Returns the status of the last command executed.\
+\
+#\cf16  For loop\cf2 \
+ for X in Abinet Friew Dawit\
+> do\
+> echo "Hi $\{X\}"\
+> done\
+Hi Abinet\
+Hi Friew\
+Hi Dawit\
+agrant@localhost vagrant]$ for X in Abinet Friew Dawit; do echo "Hi $\{X\}"; done\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs22 \cf8 \cb3 \
+\cf17 # while loop \cf8 \
+x = 1\
+while [["$\{x\}" x -eq 1]]\
+ do\
+ echo "This is a value of x: $\{x\}"\
+ x= 7\
+done\
+man/type/help any of the ff\
+\cf13 True\
+Sleep \
+Shift\
+\cf8 \
+\
+\cb9 /key word\cb3  to make a search\
+\cb18 Shift ENTER\cb3  to go back\
+\cb9 ?key word\cb3  for reverse search\
+\cb19 Q\cb3  for quite\
+UID is read only\
+\cf2 \cb19 $ type -a id\cb3 \
+\cf20 id is /usr/bin/id\
+\
+Man id  Returns\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf1 NAME\cf2 \
+       id - print real and effective user and group IDs\
+\
+\cf1 SYNOPSIS\cf2 \
+       \cf1 \cb21 id\cf2  [\ul \ulc2 OPTION\ulnone ]... [\ul USER\ulnone ]\
+\cf1 \cb22 Example\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb3 [vagrant@localhost vagrant]$ man id\
+[vagrant@localhost vagrant]$ id\
+uid=1000(vagrant) gid=1000(vagrant) groups=1000(vagrant)\
+[vagrant@localhost vagrant]$ id -u\
+1000\
+[vagrant@localhost vagrant]$ id - u -n\
+id: extra operand \'91u\'92\
+Try 'id --help' for more information.\
+[vagrant@localhost vagrant]$ id  -u -n\
+vagrant\
+[vagrant@localhost vagrant]$ id -n -u\
+vagrant\
+[vagrant@localhost vagrant]$ id -un\
+vagrant\
+[vagrant@localhost vagrant]$ id -nu\
+vagrant\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf1 \
+DESCRIPTION\cf2 \
+       Print  user  and  group  information  for the specified USER, or (when USER\
+       omitted) for the current user\cf20 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2  \cf1 -a\cf2      ignore, for compatibility with other versions\
+       \cf1 -Z\cf2 , \cf1 --context\cf2 \
+              print only the security context of the current user\
+       \cf1 -g\cf2 , \cf1 --group\cf2 \
+              print only the effective group ID\
+       \cf1 -G\cf2 , \cf1 --groups\cf2 \
+              print all group IDs\
+       \cf1 -n\cf2 , \cf1 --name\cf2 \
+              print a name instead of a number, for \cf1 -ugG\cf2 \
+       \cf1 -r\cf2 , \cf1 --real\cf2 \
+              print the real ID instead of the effective ID, with \cf1 -ugG\cf2 \
+       \cf1 -u\cf2 , \cf1 --user\cf2 \
+              print only the effective user ID\
+       \cf1 -z\cf2 , \cf1 --zero\cf2 \
+              delimit entries with NUL characters, not whitespace;\
+              not permitted in default format\
+       \cf1 --help\cf2  display this help and exit\
+       \cf1 --version\cf2 \
+              output version information and exit\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf23 # Display if the user is the root user or not.\cf2 \
+\cf24 if \cf25 [[\cf2  \cf24 "\cf25 $\{UID\}\cf24 "\cf2  \cf24 -eq\cf2  \cf26 0\cf2  \cf25 ]]\cf2 \
+\cf24 then\cf2 \
+  \cf24 echo\cf26  \cf24 '\cf26 You are root.\cf24 '\cf2 \
+\cf24 else\cf2 \
+  \cf24 echo\cf26  \cf24 '\cf26 You are not root.\cf24 '\cf2 \
+\cf24 fi\
+\
+Help if \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 if: if COMMANDS; then COMMANDS; [ elif COMMANDS; then COMMANDS; ]... [ else COMMANDS; ] fi\
+    Execute commands based on conditional.\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb9 Echo -a test\cb3 \
+\cb9 Help test |less\cb3 \
+\
+[vagrant@localhost vagrant]$ \cf27 \cb9 sudo ./luser-demo02.sh\cf2 \cb3  \
+Your UID is 0\
+Your username is root\
+You are root.\
+[vagrant@localhost vagrant]$ \cf27 \cb19 ./luser-demo02.sh\cf2 \cb3  \
+Your UID is 1000\
+Your username is vagrant\
+You are not root.\
+[vagrant@localhost vagrant]$ \
+[vagrant@localhost vagrant]$ su to become the root\
+Password: vagrant \
+\cb19 vi fileName\cb3   read \
+[vagrant@localhost vagrant]$ \cb28 type -a [\cb3 \
+[ is a shell builtin\
+[ is /usr/bin/[\
+[vagrant@localhost vagrant]$ \cb19 ls -l /usr/bin/[\cb3 \
+-rwxr-xr-x. 1 root root 41496 Nov  5  2016 \cf4 /usr/bin/[\
+\
+Man adduser\
+/exit \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \cb29 EXIT\cf2 \cb3  \cf1 VALUES\cf2 \
+       The \cf1 useradd\cf2  command \cf0 \cb30 exit\cf2 \cb3 s with the following values:\
+\
+       \ul 0\ulnone \
+           success\
+       \ul 1\ulnone \
+           can't update password file\
+       \ul 2\ulnone \
+           invalid command syntax\
+       \ul 3\ulnone \
+           invalid argument to option\
+       \ul 4\ulnone \
+           UID already in use (and no \cf1 -o\cf2 )\
+       \ul 6\ulnone \
+           specified group doesn't exist\
+       \ul 9\ulnone \
+           username already in use\
+       \ul 10\ulnone \
+           can't update group file\
+       \ul 12\ulnone \
+           can't create home directory\
+       \ul 14\ulnone \
+           can't update SELinux user mapping\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf31 \cb19 Rm fileNane \cf2 \cb3 to delete/remove\
+READ\
+ \cf32 \cb9 help read |less\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb3  -p prompt output the string PROMPT without a trailing newline before\
+                attempting to read\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\fs36 \cf2 ost vagrant]$ read -p 'Enter your name: ' name\
+Enter your name: Abinet\
+[vagrant@localhost vagrant]$ echo name\
+name\
+[vagrant@localhost vagrant]$ echo \cb33 $\{name\}\cb3 \
+Abinet\
+\
+To add a user to the system use\
+sudo adduser UserName\
+sudo su - measauser is a new user \
+~]$ ps -ef to see every process \
+\cf0 \cb32 cat /etc/login.defs\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf23 \cb3 # Create the user.\cf2 \
+useradd \cf25 -c\cf2  \cf24 "\cf25 $\{COMMENT\}\cf24 "\cf2  \cf25 -m\cf2  \cf25 $\{USER_NAME\}\cf2 \
+\
+\cf23 # Set the password for the user.\cf2 \
+\cf23 # NOTE: You can also use the following command:\cf2 \
+\cf23 #    echo "$\{USER_NAME\}:$\{PASSWORD\}" | chpasswd\cf2 \
+\cf24 echo\cf26  \cf25 $\{PASSWORD\}\cf26  \cf2 | passwd \cf25 --stdin\cf2  \cf25 $\{USER_NAME\}\cf2 \
+\
+\cf23 # Force password change on first login.\cf2 \
+passwd \cf25 -e\cf2  \cf25 $\{USER_NAME\}\
+\
+Man passwd\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf1 --stdin\cf2 \
+              This  option  is  used  to  indicate that \cf1 passwd\cf2  should read the new\
+              password from s{\field{\*\fldinst{HYPERLINK "file:///Users/abiken/shellclass/localusers/luser-demo04.sh"}}{\fldrslt /Users/abiken/shellclass/localusers/luser-demo04.sh}}tandard input, which can be a pipe\
+       \cf1 -u\cf2 , \cf1 --unlock\cf2 \
+              This is the reverse of the \cf1 -l\cf2  option - it will  unlock  the  account\
+              password  by removing the ! prefix. This option is available to root\
+              only. By default passwd will refuse to create a passwordless account\
+              (it will not unlock an account that has only "!" as a password). The\
+              force option \cf1 -f\cf2  will override this protection.\
+\
+       \cf1 -d\cf2 , \cf1 --delete\cf2 \
+              This is a quick way to delete a password for an account. It will set\
+              the named account passwordless. Available to root only.\
+\
+       \cf1 -e\cf2 , \cf1 --expire\cf2 \
+              This  is  a  quick way to expire a password for an account. The user\
+              will be forced to change the password during the next login attempt.\
+              Available to root only.\
+\
+       \cf1 -f\cf2 , \cf1 --forc\cf2 \
+              Force the specified operation.\
+\
+       \cf1 -n\cf2 , \cf1 --minimum\cf2  \ul DAYS\ulnone \
+              This  will set the minimum password lifetime, in days, if the user's\
+              account supports password lifetimes.  Available to root only.\
+       \cf1 -x\cf2 , \cf1 --maximum\cf2  \ul DAYS\ulnone \
+              This will set the maximum password lifetime, in days, if the  user's\
+              account supports password lifetimes.  Available to root only.\
+[vagrant@localhost vagrant]$ \cb34 chmod +x\cb3  luser-demo04.sh #\cb35 Root previlage\cb3 \
+[vagrant@localhost vagrant]$ sudo ./luser-demo04.sh\
+Enter the username to create: jsmith\
+Enter the name of the person who this account is for: Jane Smith\
+Enter the password to use for the account: jsmith123\
+Changing password for user jsmith.\
+passwd: all authentication tokens updated successfully.\
+Expiring password for user jsmith.\
+passwd: Success\
+Unless you will get the ff \cf27 \cb31 error\cf2 \cb3  \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb36 [vagrant@localhost vagrant]$ ./luser-demo04.sh\
+Enter the username to create: measaguest\
+Enter the name of the person who this account is for: Doe Joe\
+Enter the password to use for the account: doejoe\
+./luser-demo04.sh: line 16: /usr/sbin/useradd: Permission denied\
+Only root can do that.\
+Only root can do that\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb3 [vagrant@localhost vagrant]$ su - jsimth\
+su: user jsimth does not exist\
+[vagrant@localhost vagrant]$ su - jsmith\
+Password: \
+You are required to change your password immediately (root enforced)\
+Changing password for jsmith.\
+(current) UNIX password: \
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf37 tail /etc/passwd\cf28  to know the pw is created\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \
+postfix:x:89:89::/var/spool/postfix:/sbin/nologin\
+chrony:x:998:996::/var/lib/chrony:/sbin/nologin\
+sshd:x:74:74:Privilege-separated SSH:/var/empty/sshd:/sbin/nologin\
+vagrant:x:1000:1000:vagrant:/home/vagrant:/bin/bash\
+vboxadd:x:997:1::/var/run/vboxadd:/bin/false\
+meat:x:1001:1002:Meat:/home/meat:/bin/bash\
+measauser:x:1002:1003::/home/measauser:/bin/bash\
+jsmith:x:1003:1004:Jane Smith:/home/jsmith:/bin/bash\
+jsimth:x:1004:1005:jsimth123:/home/jsimth:/bin/bash\
+einstein:x:1005:1006:Albert Einstein:/home/einstein:/bin/bash\
+[root@localhost vagrant]# \
+\
+RANDOM Generator\
+man bash\
+/RANDOM\
+\
+nt]$ \cf31 echo "$\{RANDOM\}"\cf2 \
+29944\
+!v == vim filename\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf31 \cb20 Man date\
+/format\cf2 \cb3  \
+[vagrant@localhost vagrant]$ date +%s\
+1561662092\
+[vagrant@localhost vagrant]$ date +%s\
+1561662093\
+[vagrant@localhost vagrant]$ date +%s\
+1561662093\
+\
+\cf38 To validate the File is Whether corrupted or not \cf2 \
+vagrant@localhost vagrant]$ ls -l /usr/bin/*sum\
+-rwxr-xr-x. 1 root root 33136 Nov  5  2016 \cf4 /usr/bin/cksum\cf2 \
+-rwxr-xr-x. 1 root root 41504 Nov  5  2016 \cf4 /usr/bin/md5sum\cf2 \
+-rwxr-xr-x. 1 root root 37456 Nov  5  2016 \cf4 /usr/bin/sha1sum\cf2 \
+-rwxr-xr-x. 1 root root 41600 Nov  5  2016 \cf4 /usr/bin/sha224sum\cf2 \
+-rwxr-xr-x. 1 root root 41600 Nov  5  2016 \cf4 /usr/bin/sha256sum\cf2 \
+-rwxr-xr-x. 1 root root 41592 Nov  5  2016 \cf4 /usr/bin/sha384sum\cf2 \
+-rwxr-xr-x. 1 root root 41592 Nov  5  2016 \cf4 /usr/bin/sha512sum\cf2 \
+-rwxr-xr-x. 1 root root 37432 Nov  5  2016 \cf4 /usr/bin/sum\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 [vagrant@localhost vagrant]$ date +%s\
+1561662597\
+[vagrant@localhost vagrant]$ \cf28 date +%s | sha256sum\cf2 \
+e1c8b5a5124c052171733f409709a34fb741c24bf84310cd3705c03f54115b12  -\
+[vagrant@localhost vagrant]$ date +%s | sha256sum\
+b126b8de32c1c065865bd3e57e47b128eaa60c5de82d344af22c6269389115c0  -\
+[vagrant@localhost vagrant]$ \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb9 man sha256sum\
+\
+Type -a head\
+Man head  head - output the first part of files\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb3 [vagrant@localhost vagrant]$ head -n1 /etc/passwd\
+root:x:0:0:root:/root:/bin/bash\
+[vagrant@localhost vagrant]$ head -n 1 /etc/passwd\
+root:x:0:0:root:/root:/bin/bash\
+[vagrant@localhost vagrant]$ head -1 /etc/passwd\
+root:x:0:0:root:/root:/bin/bash\
+[vagrant@localhost vagrant]$\
+\
+To print the characters \
+[vagrant@localhost vagrant]$ head -c2 /etc/passwd\
+ro[vagrant@localhost vagrant]$ head -c3 /etc/passwd\
+roo[vagrant@localhost vagrant]$ \
+===============\
+[vagrant@localhost vagrant]$ echo "testing" | head -c2\
+te[vagrant@localhost vagrant]$\
+[vagrant@localhost vagrant]$ date +%s | sha256sum | head -c8\
+3e5656fb[vagrant@localhost vagrant]$ date +%s | sha256sum | head -c8\
+2e37d584[vagrant@localhost vagrant]$ date +%s | sha256sum | head -c8\
+20c6ec53[vagrant@localhost vagrant]$ date +%s | sha256sum | head -c8\
+0625de90[vagrant@localhost vagrant]$ date +%s | sha256sum | head -c8\
+\
+d78b7c72[vagrant@localhost vagrant]$ date +%sN | sha256sum | head -c8\
+9b1b7906[vagrant@localhost vagrant]$ date +%sN | sha256sum | head -c8\
+bd534bc8[vagrant@localhost vagrant]$ date +%sN | sha256sum | head -c8\
+6fd22d2b[vagrant@localhost vagrant]$ date +%sN | sha256sum | head -c8\
+d91b6bbf[vagrant@localhost vagrant]$ date +%sN | sha256sum | head -c8\
+\
+Man shuf \
+ SHUF(1)                            User Commands                           SHUF(1)\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf1 NAME\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \
+       shuf - generate random permutations\
+\
+Man fold\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf23 # Append a special character to the password.\cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf39 SPECIAL_CHARACTER\cf2 =\cf25 $(\cf24 echo\cf26  \cf24 '\cf26 !@#$%^&*()_-+=\cf24 '\cf26  \cf25 | fold -w1 | shuf | head -c1)\cf2 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf24 echo\cf26  \cf24 "\cf25 $\{PASSWORD\}$\{SPECIAL_CHARACTER\}\cf24 "\
+\
+\
+\
+\
+\
+\cb40 Summary of the course\
+\cf41 Naming shell scripts and file extension\
+\
+Shell script permissions\
+		chomod 755 script name\
+	  chmod +x script name \
+The Basics\
+Shebang\
+ 	#!/bin/bash\
+Comment\
+ 	#\
+Variable \
+\
+   VAR = \'93Value\'94\
+Creating standard outputs and quoting\
+ The echo builtin \
+\
+Single verses double quotes\
+	\'93\{VAR\} gets expanded.\'94\
+	\'91\{Var\} does not get expanded.\'92\
+\
+Type: type\
+Help: help \
+Man \
+\
+Shell Variables \
+	HOSTNAME\
+	RANDOM\
+	UID\
+\
+Command su situation\
+	VAR=$(command)\
+	VAR =\'91Command\'92 # old style\
+	echo \'93Output of command: $(command)\'94\
+\
+Pseudocode\
+	first\
+	next\
+	finally\
+\
+The if statement\
+	if [[commands]]\
+	then \
+		Commands\
+	Else \
+		commands\
+Fi\
+\
+Exit statuses\
+	\
+	0 = true/successful\
+   1 = false/unsuccessful\
+Any non-zero exit status represents failure\
+		exit 1\
+		echo $\{?\} # you can also use $?\
+\
+Sanity Checking\
+Do not assume; check!\
+If [[\'93$\{UID\}\'94 -ne 0]]\
+	then \
+		echo \'91Please run as root.\'92>&2\
+		exit\
+Fi\
+\
+Command line conventions\
+Id -u -n\
+Id -un\
+Id -nu\
+Id -\'97user -\'97name\
+\
+Obtaining standard inputs\
+The read shell builtin\
+ 	read -p \'93A prompt:\'94 VARIABLE\
+\
+Getting Random data \
+The $RANDOM  shell variable\
+ 		echo $\{RANDOM\} # int\
+\
+Seemingly random data using checksums\
+ 	date +%s%N | sha256sum | head -c8\
+\
+Positional parameters\
+Man bash /special parameters\
+ \cf2 \cb3  \cf1 \cb3 Special\cf2 \cb3  \cf1 \cb3 Parameters\cf41 \cb40 \
+\
+For loop\
+While loop\
+\
+\
+\
+\
+\
+\
+ \
+\
+\
+\cf24 \
+\
+}
