@@ -1,0 +1,48 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf200
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;\red242\green242\blue242;\red0\green0\blue0;\red33\green255\blue6;
+\red0\green0\blue0;\red0\green0\blue0;\red251\green2\blue7;}
+{\*\expandedcolortbl;;\csgray\c95825;\csgray\c0\c85000;\cssrgb\c0\c97680\c0;
+\csgray\c0\c0;\cssrgb\c0\c0\c0;\cssrgb\c100000\c14913\c0;}
+\margl1440\margr1440\vieww10860\viewh15460\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs48 \cf0 Docker 03/01/2019\
+
+\fs24 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\fs28 \cf2 \cb3 \CocoaLigature0 docker version\
+iTerm2\
+brew install bash-completion\
+Docker info\
+New\
+\cb4 New way\cb5  of \cf6 docker \
+Docker <<command> <sub-comand> (option)>\
+\
+Images vs Container\
+\
+\
+\cf2 \cb3 docker container run --publish 80:80 nginx\
+ abiken$ docker container run --publish 80:80 --detach nginx\
+9290cdc874943906dedc220c753a5f37196008275b47f40f6e9cf5a98504f74d\
+ docker container ls\
+:~ abiken$ docker container stop 929\
+\cb7 929\
+\cb3  docker container ls -a\
+To start a new one by giving a name\
+docker container run --publish 80:80 --detach --name webhost nginx\
+\
+36eed701726d7ee847773c80ae8af64a54fbae15c0ce1a2319360ae4ad6e8cbf\
+\
+docker container ls\
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                NAMES\
+36eed701726d        nginx               "nginx -g 'daemon of\'85"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   webhos\
+\
+Abinets-MacBook-Pro:~ abiken$ docker logs webhost\
+Abinets-MacBook-Pro:~ abiken$ docker container top webhost \
+PID                 USER                TIME                COMMAND\
+3195                root                0:00                nginx: master process nginx -g daemon off;\
+3234                101                 0:00                nginx: worker process\
+Abinets-MacBook-Pro:~ abiken$ docker container rm c70 a4a 13c \
+docker container rm -f 8ae}

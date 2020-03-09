@@ -1,0 +1,200 @@
+Question 1:
+You have a high performance compute application and you need to minimize network latency between EC2 instances as much as possible. What can you do to achieve this?
+
+Use Elastic Load Balancing to load balance traffic between availability zones
+​
+Create a CloudFront distribution and to cache objects from an S3 bucket at Edge Locations.
+​
+Create a placement group within an Availability Zone and place the EC2 instances within that placement group.
+​
+Deploy your EC2 instances within the same region, but in different subnets and different availability zones so as to maximise redundancy.
+
+Question 2:
+True or False? Amazon S3 buckets in all Regions provide read-after-write consistency for PUTS of new objects and eventual consistency for overwrite PUTS and DELETES. 
+​True/False
+
+Question 3:
+Placement Groups can be created across 2 or more Availability Zones.
+True/False
+
+Question 4:
+You can add multiple volumes to an EC2 instance and then create your own RAID 5/RAID 10/RAID 0 configurations using those volumes.
+
+True/False
+
+Question 5:
+You are creating your own relational database on an EC2 instance and you need to maximise IOPS performance. What can you do to achieve this goal?
+
+​
+Add a single additional volume to the EC2 instance with provisioned IOPS.
+​
+Create the database on an S3 bucket.
+​
+Add multiple additional volumes with provisioned IOPS and then create a RAID 0 stripe across those volumes.
+​
+Attach the single volume to multiple EC2 instances so as to maximise performance.
+
+
+Question 6:
+Which of the services below do you get root access to?
+
+​
+Elasticache & Elastic MapReduce
+​
+RDS & DynamoDB
+​
+EC2 & Elastic MapReduce
+​
+Elasticache & DynamoDB
+
+Question 7:
+Using SAML (Security Assertion Markup Language 2.0) you can give your federated users single sign-on (SSO) access to the AWS Management Console.
+
+True/False
+
+Question 8:
+You can have 1 subnet stretched across multiple availability zones.
+
+True/False
+
+Question 9:
+When you create new subnets within a custom VPC, by default they can communicate with each other, across availability zones.
+
+True/False
+
+Question 10:
+It is possible to transfer a reserved instance from one Availability Zone to another.
+
+True/False
+
+Question 11:
+You have an EC2 instance which needs to find out both its private IP address and its public IP address. To do this you need to;
+
+Run IPCONFIG (Windows) or IFCONFIG (Linux)
+​
+Retrieve the instance Metadata from http://169.254.169.254/latest/meta-data/
+​
+Retrieve the instance Userdata from http://169.254.169.254/latest/meta-data/
+​
+Use the following command; AWS EC2 displayIP
+
+Question 12:
+To retrieve instance metadata or userdata you will need to use the following IP Address;
+
+http://127.0.0.1
+​
+http://192.168.0.254
+​
+http://10.0.0.1
+
+http://169.254.169.254
+
+Question 13:
+Amazon S3 buckets in all regions provide read-after-write consistency for PUTS of new objects.
+
+True/False
+
+Question 14:
+Amazon S3 buckets in all regions do not provide eventual consistency for overwrite PUTS and DELETES.
+
+​True/False
+
+Question 15:
+Amazon S3 provides;
+
+Unlimited File Size for Objects
+​
+Unlimited Storage
+​
+A great place to run a No SQL database from
+​
+The ability to act as a web server for dynamic content (i.e. can query a database)
+
+Question 16:
+In order to enable encryption at rest using EC2 and Elastic Block Store you need to
+
+Configure encryption when creating the EBS volume
+​
+Configure encryption using the appropriate Operating Systems file system
+​
+Configure encryption using X.509 certificates
+​
+Mount the EBS volume in to S3 and then encrypt the bucket using a bucket policy.
+
+Question 17:
+You can select a specific Availability Zone in which to place your DynamoDB Table
+
+True/False
+
+Question 18:
+When creating an RDS instance you can select which availability zone in which to deploy your instance.
+
+​True/False
+
+Question 19:
+Amazon's Redshift uses which block size for its columnar storage?
+​
+2KB
+8KB
+16KB
+32KB
+1024KB / 1MB
+
+Question 20:
+You run a website which hosts videos and you have two types of members, premium fee paying members and free members. All videos uploaded by both your premium members and free members are processed by a fleet of EC2 instances which will poll SQS as videos are uploaded. 
+However you need to ensure that your premium fee paying members videos have a higher priority than your free members. How do you design SQS?
+​
+SQS allows you to set priorities on individual items within the queue, so simply set the fee paying members at a higher priority than your free members.
+​
+Create two SQS queues, one for premium members and one for free members. Program your EC2 fleet to poll the premium queue first and if empty, to then poll your free members SQS queue.
+​
+SQS would not be suitable for this scenario. It would be much better to use SNS to encode the videos.
+
+
+06/26/19
+Route53
+
+DNS 101
+
+Route 53 throughout the rest of this section of the course.
+
+Now first of all you might be wondering where did they get the name Route 53 from.
+
+Well if you know a little bit about US history the very first interstate was Route 66 was the very first
+
+road that went from one side of the country to the other.
+
+And with DNS DNS is actually on the port 53 So that's where Route 53 gets its name.
+
+
+What is DNS? 
+DNS iS a way of looking up a domain name and getting an IP address just like you
+Is use to convert human friendly domain names into an internet protocol address such as http://82.124.53.1.
+IP address are used by computers to identify each other on the network. Ip addresses are commonly come in 2 different forms IPv$ /6.
+
+IP4 address is a 32 bit field over 4 Billion different addresses (4,294,967,296)
+We created IPTV six to solve this problem of running out of IP V for addresses and IP these six has
+
+an address space of 128 bits.
+IPv6 was created to solve the depletion issue and has an address space of 128bits 340 Undecillion addressees.   
+
+Top level domain names are governed by https://www.iana.org/about
+
+Summary of Route53/Tip
+ELBs do not have a pre-defined IPv4 addresses, you resolve to them using a DNS name.
+Know the difference between an Alias record and a CNAME
+Common DNS Type 
+SOA Records
+NS Records
+A Records
+CNAMES
+MX Records  which we use for mail
+PTR Records 's the reverse of a record. So it's a way of looking up a name against an IP address.
+
+
+
+
+
+
+ 
+

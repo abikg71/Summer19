@@ -1,0 +1,124 @@
+Yii 2 frame work course
+Github link for the course: https://github.com/mjbeaumont/packt-learning-yii-2
+Download VB
+Download Vagrant/Centos
+PuPHPet =>https://puphpet.com
+
+Getting started
+On Terminal
+Composer global require "fop/composer-asset-plugin:1.0.0"
+Create a new project/layout by 
+C composer create-project -prefer-dist "yiisoft/yii2-app-basic"
+
+Gii 
+* localhost/gii
+
+Hello again and welcome to Section 2 introducing use development tools in this section we will learn
+
+how to use Gaede to generate code templates for our models views and controllers.
+
+We will also take a look at the debug module.
+
+So let's move on to the first video section configuring and use ngi.
+
+We'll take a look at exactly what is why we want to use it and how to configure it.
+
+As you may already be aware he implements the model view controller pattern when using an MVC based
+
+framework.
+
+Developers often spend a lot of time copying and pasting common code and then editing it to meet the
+
+requirements of a specific application feature.
+
+This process is both time consuming and error prone.
+
+With key we can use a web based interface to quickly generate Model View and controller code that is
+
+tailored to our needs.
+
+Once we get GUI configured we'll go ahead and take a brief look at its features.
+
+As you can easily imagine a tool that can generate code on the server represents a security risk in
+
+the hands of unauthorized users.
+
+So these authors wisely chose to require us to explicitly set some configuration options in order to
+
+access it.
+
+The guitar is located in the subdirectory of your site
+
+but you'll see if we try to access it then we get a 403 forbidden error.
+
+That's because GUI only allows requests from localhost by default but because our application is running
+
+on a vagrant server our host and guest machines use separate IP addresses in order to allow access to
+
+key we simply need to add the IP address of our host machine to that configuration to find your host
+
+machine IP address.
+
+Create a new file in the webroot called IP that HP
+
+and echo the remote address value of the server super global If we pull this script up the browser will
+
+see that our IP addresses 192 168.
+
+That 56 wan.
+
+Remember to delete this file before moving to production.
+
+Now we simply need to add this IP address to our configuration.
+
+Go ahead and open up web DHP and scroll down to line 59.
+
+You'll see that this section of the config is wrapped in an IF statement that only runs if the site
+
+is in development mode which is another layer of security so the key will be totally inaccessible in
+
+production mode from any source.
+
+Simply edit the Configuration section as follows.
+
+In order to add your IP address.
+
+Now switch back to your browser and reload.
+
+You'll see that were greeted warmly by the magical tool that can write code for you on first glance
+
+and you will notice that key can be used to generate models views and controllers.
+
+It can also be used to quickly scaffold out forms modules and extensions in this course we will use
+
+the model generator as well as the generator to generate the bulk of the code for our application.
+
+Now you know what key is and how to set it up.
+
+Up next we will look more closely at the process of generating model code as well as some of the key
+
+features of models in E-2.
+
+
+Creating Models 
+
+
+Sending Email
+Go to web.php
+Mailer conf
+
+/*'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'localhost',
+                'username' => 'username',
+                'password' => 'password',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],*/
+
+
+mail/layouts/html.php
+
+
+
+
