@@ -151,3 +151,12 @@ _Letters are shown capitalized for readability only._  _Capslock should be off._
 | whatis [command] | Gives a one-line description of [command] |
 | apropos [search-pattern] | Searches for command with keywords in description |
 
+
+
+// Visual Studio 
+Select All Occurrences of Find Match editor.action.selectHighlights.
+
+Ctrl+Shift+L
+
+Cmd+Shift+L or Cmd+Ctrl+G on Mac
+
